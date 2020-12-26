@@ -21,13 +21,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 button {
   color: red;
 }
 
 .title {
   color: #fff;
-  background: green;
+  background: rgb(185, 108, 7);
 }
 </style>

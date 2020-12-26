@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "offline-plugin": "^5.0.7",
     "vue": "^2.6.12",
     "vue-router": "^3.4.9"
   },

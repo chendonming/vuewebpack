@@ -3,6 +3,7 @@ const common = require('./webpack.common.js')
 const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -12,6 +13,10 @@ module.exports = merge(common, {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new BundleAnalyzerPlugin({ analyzerMode: 'disabled' }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
+    })
   ],
   optimization: {
     splitChunks: {

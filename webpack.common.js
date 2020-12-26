@@ -20,17 +20,15 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json', '.vue']
   },
   plugins: [
-    new VueLoaderPlugin(),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "style/[name].[chunkhash:8].css",
+    }),
     new HtmlWebpackPlugin({ title: "搭建优化项目架构", template: 'index.html' }),
+    new VueLoaderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      },
       {
         test: /\.m?js$/,
         exclude: /node_modules/,
@@ -44,15 +42,19 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'vue-style-loader', 'css-loader']
-      },
-      {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           'file-loader'
         ]
       },
+      {
+        test: /\.vue$/,
+        use: ['vue-loader']
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      }
     ]
   }
 }

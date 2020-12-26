@@ -8,11 +8,13 @@ export default new router({
   routes: [
     {
       path: '/',
-      component: () => import('@/views/HelloWorld')
+      component: () => import('@/views/HelloWorld'),
+      name: 'HelloWorld'
     },
     {
       path: '/a',
-      component: () => import('@/views/A')
+      component: () => import('@/views/A'),
+      name: 'A'
     }
   ]
 })
